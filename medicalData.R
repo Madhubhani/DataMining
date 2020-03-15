@@ -1,4 +1,5 @@
-#insuranceData <- read.csv("insurance_0.csv")
+#insData <- read.csv("insurance_0.csv")
+#If you face any error with MySQL connection, Use the 1st line instead of the lines upto 14
 
 library(RMySQL)
 library(psych)
@@ -9,7 +10,8 @@ conn<-dbConnect(MySQL(), dbname="insurance_db", username="root", password="")
 dbListTables(conn)
 dbListFields(conn, "ins_data")
 
-insData <- dbGetQuery(conn, "SELECT ∗ FROM ins_data;")
+insData <- dbGetQuery(conn, "SELECT * FROM ins_data;")
+
 dim(insData)
 str(insData)
 summary(insData)
